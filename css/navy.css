@@ -39,11 +39,10 @@ p {
   line-height: 1.5;
 }
 
-/* img {
-  display: block;
+img {
   max-width: 100%;
   object-fit: cover;
-} */
+}
 
 .container {
   padding: 0 1rem;
@@ -63,6 +62,10 @@ header {
   box-shadow: 0 0 10px #ddd;
 }
 
+header .container {
+  position: relative;
+}
+
 .nav {
   text-align: center;
 }
@@ -71,20 +74,25 @@ header {
   font-size: 1.625rem;
   font-weight: bold;
   color: var(--clr-primary);
+  transition: all var(--transition-duration);
 }
 
-.nav-list {
+.logo:hover {
+  color: var(--clr-secondary);
+}
+
+.nav__list {
   display: flex;
   justify-content: center;
 }
 
-.nav-link {
+.nav__link {
   font-size: 0.85rem;
   padding: 0.75em;
   position: relative;
 }
 
-.nav-link::before {
+.nav__link::before {
   content: '';
   position: absolute;
   top: 0;
@@ -94,20 +102,87 @@ header {
   background-color: var(--clr-primary);
 }
 
-.nav-link,
-.nav-link::before {
+.nav__link,
+.nav__link::before {
   transition: all var(--transition-duration);
 }
 
-.nav-link:hover,
-.nav-link:focus {
+/* :focus-visible has the sole purpose of applying styles only on focus by keyboard, styles won't persist after a click as is the case with :focus */
+.nav__link:hover,
+.nav__link:focus-visible {
   color: var(--clr-primary);
   background-color: #fafafa;
 }
 
-.nav-link:hover::before,
-.nav-link:focus::before {
+.nav__link:hover::before,
+.nav__link:focus-visible::before {
   width: 100%;
+}
+
+.mega-menu {
+  width: 100%;
+  padding: 0 5px;
+  background-color: #fff;
+  border-bottom: 3px solid var(--clr-primary);
+  border-top: 1px solid #e9e6e6;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 50px);
+  z-index: -1;
+  opacity: 0;
+  transition: top var(--transition-duration), opacity var(--transition-duration);
+}
+
+.nav__link:hover + .mega-menu,
+.nav__link:focus-visible + .mega-menu,
+/* uncomment these after hero section (z-index will go under and the mega-menu won't be hovered out of thin air) */
+.mega-menu:hover,
+/* THIS IS ONLY FOR SCREEN READERS (tab) */
+.mega-menu:focus-within {
+  opacity: 1;
+  top: 100%;
+  z-index: 100; /* mega-menu has to appear above everything */
+}
+
+.mega-menu__image {
+  display: none;
+}
+
+.mega-menu__link {
+  width: 100%;
+  padding: 0.8em;
+  font-size: 1.125rem;
+  line-height: 1.15; /* normalize */
+  font-weight: bold;
+  text-align: left;
+  color: var(--clr-primary);
+  border-bottom: 1px solid #e9e6e6;
+  position: relative;
+}
+
+.mega-menu__list:last-of-type li:last-child .mega-menu__link {
+  border: 0;
+}
+
+.mega-menu__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #fafafa;
+  z-index: -1;
+  transition: width var(--transition-duration);
+}
+
+.mega-menu__link:hover::before,
+.mega-menu__link:focus-visible::before {
+  width: 100%;
+}
+
+.mega-menu__link i {
+  margin-right: 10px;
 }
 
 @media (min-width: 768px) {
@@ -117,9 +192,41 @@ header {
     justify-content: space-between;
   }
 
-  .nav-link {
+  .nav__link {
     font-size: 1.125rem;
     padding: 1em 1.5em;
   }
+
+  .mega-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2em;
+  }
+
+  .mega-menu__list {
+    flex: 1;
+  }
+
+  .mega-menu__list:first-of-type li:last-child .mega-menu__link {
+    border: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .mega-menu__image {
+    display: block;
+  }
+
+  .mega-menu__list {
+    /* This prevents the word wrap but at some point the space gets too small left and right */
+    /* min-width: fit-content; */
+    min-width: 250px;
+  }
 }
 /* End Header */
+
+.placeholder {
+  min-height: 100vh;
+  background-color: #ececec;
+}
