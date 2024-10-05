@@ -56,6 +56,86 @@ img {
 }
 /* End Global Rules */
 
+/* Start Components */
+.section-title {
+  font-size: 1.875rem;
+  line-height: 1.15; /* normalize */
+  text-transform: uppercase;
+  border: 2px solid #000;
+  width: fit-content;
+  margin: 0 auto 2.5em;
+  padding: 0.35em 0.7em;
+  position: relative;
+  transition: color var(--transition-duration),
+    border-color var(--transition-duration);
+}
+
+.section-title:hover {
+  color: #fff;
+  border-color: #fff;
+  /* using this here will immediately cancel it when the mouse is out! */
+  /* if we used it on the element itself, it will delay the transition out as well so the delay will be applied on hover AND on mouse out */
+  transition-delay: 0.5s; /* animation duration */
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--clr-primary);
+}
+
+.section-title::before {
+  left: -30px;
+}
+
+.section-title::after {
+  right: -30px;
+}
+
+.section-title:hover::before {
+  animation: move-right 0.5s linear forwards;
+}
+
+.section-title:hover::after {
+  animation: move-left 0.5s linear forwards;
+}
+
+@keyframes move-right {
+  50% {
+    left: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes move-left {
+  50% {
+    right: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+/* End Components */
+
 /* Start Header */
 header {
   background-color: #fff;
@@ -74,7 +154,7 @@ header .container {
   font-size: 1.625rem;
   font-weight: bold;
   color: var(--clr-primary);
-  transition: all var(--transition-duration);
+  transition: color var(--transition-duration);
 }
 
 .logo:hover {
@@ -90,6 +170,8 @@ header .container {
   font-size: 0.85rem;
   padding: 0.75em;
   position: relative;
+  transition: color var(--transition-duration),
+    background-color var(--transition-duration);
 }
 
 .nav__link::before {
@@ -100,11 +182,7 @@ header .container {
   height: 4px;
   width: 0%;
   background-color: var(--clr-primary);
-}
-
-.nav__link,
-.nav__link::before {
-  transition: all var(--transition-duration);
+  transition: width var(--transition-duration);
 }
 
 /* :focus-visible has the sole purpose of applying styles only on focus by keyboard, styles won't persist after a click as is the case with :focus */
@@ -237,7 +315,7 @@ header .container {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: #ececec;
+  background-color: var(--section-bg);
 }
 
 .hero .container {
@@ -377,3 +455,68 @@ header .container {
   }
 }
 /* End Waves */
+
+/* Start Articles */
+.articles {
+  padding: var(--section-padding);
+}
+
+.articles .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+}
+
+.card {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform var(--transition-duration),
+    box-shadow var(--transition-duration);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+
+/* to remove that extra space which is caused by the img's inline nature that makes it align itself with the text baseline (line-height) */
+.card__img {
+  display: block;
+}
+
+.card__text {
+  padding: 1.25em;
+}
+
+.card__text h3 {
+  line-height: 1.15; /* normalize */
+}
+
+.card__text p {
+  color: #777;
+  margin-top: 0.5em;
+}
+
+.card__info {
+  padding: 1.25em;
+  border-top: 1px solid #e6e6e7;
+  color: var(--clr-primary);
+  font-weight: bold;
+  line-height: 1.15; /* normalize */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card:hover .card__info i {
+  animation: move-arrow 0.6s linear infinite;
+}
+
+@keyframes move-arrow {
+  to {
+    transform: translateX(10px);
+  }
+}
+
+/* End Articles */
