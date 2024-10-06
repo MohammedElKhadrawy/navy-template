@@ -170,31 +170,30 @@ header .container {
   font-size: 0.85rem;
   padding: 0.75em;
   position: relative;
-  transition: color var(--transition-duration),
-    background-color var(--transition-duration);
+  transition: color var(--transition-duration);
 }
 
 .nav__link::before {
   content: '';
   position: absolute;
-  top: 0;
   left: 0;
-  height: 4px;
-  width: 0%;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
   background-color: var(--clr-primary);
-  transition: width var(--transition-duration);
+  transform: scaleX(0);
+  transition: transform var(--transition-duration);
 }
 
 /* :focus-visible has the sole purpose of applying styles only on focus by keyboard, styles won't persist after a click as is the case with :focus */
 .nav__link:hover,
 .nav__link:focus-visible {
   color: var(--clr-primary);
-  background-color: #fafafa;
 }
 
 .nav__link:hover::before,
 .nav__link:focus-visible::before {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .mega-menu {
