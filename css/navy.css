@@ -66,6 +66,7 @@ img {
   margin: 0 auto 2.5em;
   padding: 0.35em 0.7em;
   position: relative;
+  z-index: 1; /* this takes the whole component on a higher stacking context */
   transition: color var(--transition-duration),
     border-color var(--transition-duration);
 }
@@ -82,7 +83,7 @@ img {
 .section-title::after {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: -1; /* now this will be behind the title only and not the whole page */
   top: 50%;
   transform: translateY(-50%);
   width: 12px;
@@ -105,34 +106,6 @@ img {
 
 .section-title:hover::after {
   animation: move-left 0.5s linear forwards;
-}
-
-@keyframes move-right {
-  50% {
-    left: 0;
-    width: 12px;
-    height: 12px;
-  }
-  100% {
-    left: 0;
-    width: 50%;
-    height: 100%;
-    border-radius: 0;
-  }
-}
-
-@keyframes move-left {
-  50% {
-    right: 0;
-    width: 12px;
-    height: 12px;
-  }
-  100% {
-    right: 0;
-    width: 50%;
-    height: 100%;
-    border-radius: 0;
-  }
 }
 /* End Components */
 
@@ -374,16 +347,6 @@ header .container {
   .hero__img img {
     animation: float 5s infinite linear;
   }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-50px);
-    }
-  }
 }
 
 .go-down {
@@ -401,19 +364,6 @@ header .container {
 
 .go-down i {
   animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80% {
-    transform: translateY(0);
-  }
-  40%,
-  60% {
-    transform: translateY(-15px);
-  }
 }
 /* End Hero */
 
@@ -480,7 +430,7 @@ header .container {
   gap: 2.5rem;
 }
 
-.card {
+.articles .card {
   box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
   border-radius: 6px;
   overflow: hidden;
@@ -488,30 +438,30 @@ header .container {
     box-shadow var(--transition-duration);
 }
 
-.card:hover {
+.articles .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
 }
 
 /* to remove that extra space which is caused by the img's inline nature that makes it align itself with the text baseline (line-height) */
-.card__img {
+.articles .card__img {
   display: block;
 }
 
-.card__text {
+.articles .card__text {
   padding: 1.25em;
 }
 
-.card__text h3 {
+.articles .card__text h3 {
   line-height: 1.15; /* normalize */
 }
 
-.card__text p {
+.articles .card__text p {
   color: #777;
   margin-top: 0.5em;
 }
 
-.card__info {
+.articles .card__info {
   padding: 1.25em;
   border-top: 1px solid #e6e6e7;
   color: var(--clr-primary);
@@ -522,18 +472,123 @@ header .container {
   justify-content: space-between;
 }
 
-.card__info a {
+.articles .card__info a {
   /* this applies transition out as well */
   /* and not only for the hover itself */
   transition: color var(--transition-duration);
 }
 
-.card__info a:hover {
+.articles .card__info a:hover {
   color: var(--clr-secondary);
 }
 
-.card:hover .card__info i {
+.articles .card:hover .card__info i {
   animation: move-arrow 0.6s linear infinite;
+}
+/* End Articles */
+
+/* Start Gallery */
+.gallery {
+  padding: var(--section-padding);
+  background-color: var(--section-bg);
+}
+
+.gallery .container {
+  display: grid;
+  /* the min() is to prevent overflow on small mobile screens like 320px wide */
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 2.5rem;
+}
+
+.gallery .box {
+  background-color: #fff;
+  padding: 1em;
+  /* trial and error */
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),
+    0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+
+.gallery .box__img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .box__img-container::before {
+  content: '';
+  width: 0%;
+  height: 0%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255 255 255 / 20%);
+  z-index: 1;
+}
+
+.gallery .box__img-container:hover::before {
+  animation: flash 0.7s;
+}
+
+.gallery .box__img {
+  display: block;
+  transition: transform var(--transition-duration);
+}
+
+.gallery .box__img-container:hover .box__img {
+  transform: scale(1.1) rotate(5deg);
+}
+/* End Gallery */
+
+/* Start Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes move-right {
+  50% {
+    left: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes move-left {
+  50% {
+    right: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
 }
 
 @keyframes move-arrow {
@@ -542,4 +597,15 @@ header .container {
   }
 }
 
-/* End Articles */
+@keyframes flash {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
+/* End Animation */
