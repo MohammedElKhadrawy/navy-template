@@ -704,6 +704,102 @@ header .container {
 }
 /* End Testimonials */
 
+/* Start Team */
+.team-member {
+  position: relative;
+}
+
+.team-member::before,
+.team-member::after {
+  content: '';
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+}
+
+.team-member::before {
+  background-color: #f3f3f3;
+}
+
+.team-member:after {
+  width: 0%;
+  background-color: #e4e4e4;
+  transition: width var(--transition-duration);
+}
+
+.team-member::before,
+.team-member:hover::after {
+  width: calc(100% - 60px);
+}
+
+.team-member__profile {
+  display: flex;
+  align-items: center;
+  padding-top: 3.75em;
+}
+
+.team-member__profile-img {
+  display: block;
+  width: calc(100% - 60px); /* socials width */
+  border-radius: 10px;
+  transition: filter var(--transition-duration);
+}
+
+.team-member:hover .team-member__profile-img {
+  filter: grayscale(1);
+}
+
+.team-member__profile-socials {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.team-member__profile-socials a i {
+  color: #777;
+  transition: color var(--transition-duration);
+}
+
+.team-member__profile-socials a:hover i.facebook {
+  color: #1877f2;
+}
+
+.team-member__profile-socials a:hover i.twitter {
+  color: #000000;
+}
+
+.team-member__profile-socials a:hover i.linked-in {
+  color: #0a66c2;
+}
+
+.team-member__profile-socials a:hover i.youtube {
+  color: #ff0000;
+}
+
+.team-member__info {
+  width: calc(100% - 60px);
+  margin-left: auto;
+  padding: 1.25em;
+}
+
+.team-member__info h3 {
+  color: var(--clr-primary);
+  line-height: 1.15;
+  font-size: 1.375rem;
+  margin-bottom: 0.5em;
+  transition: color var(--transition-duration);
+}
+
+.team-member:hover .team-member__info h3 {
+  color: #777;
+}
+/* End Team */
+
 /* Start Animation */
 @keyframes float {
   0%,
