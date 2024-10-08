@@ -678,6 +678,52 @@ header .container {
 }
 /* End Features */
 
+/* Start Testimonials */
+.testimonials {
+  background-color: var(--section-bg);
+  padding: var(--section-padding);
+}
+
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 2.5rem;
+}
+
+.testimonial-card {
+  line-height: 1.15; /* normalize */
+  padding: 1.25em;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  position: relative;
+  display: grid;
+  gap: 0.625rem;
+}
+
+.testimonial-card__avatar {
+  width: 100px;
+  border-radius: 50%;
+  border: 10px solid var(--section-bg);
+  position: absolute;
+  top: -50px; /* half of its height */
+  right: -10px; /* border-width */
+}
+
+.testimonial-card__title {
+  color: #777;
+  font-style: italic;
+}
+
+.testimonial-card__rating .filled {
+  color: #ffc107;
+}
+
+.testimonial-card__text {
+  color: #555;
+}
+/* End Testimonials */
+
 /* Start Animation */
 @keyframes float {
   0%,
@@ -710,7 +756,7 @@ header .container {
   }
   100% {
     left: 0;
-    width: 50%;
+    width: calc(50% + 1px); /* to fix an issue with rendering */
     height: 100%;
     border-radius: 0;
   }
@@ -724,7 +770,7 @@ header .container {
   }
   100% {
     right: 0;
-    width: 50%;
+    width: calc(50% + 1px); /* to fix an issue with rendering */
     height: 100%;
     border-radius: 0;
   }
