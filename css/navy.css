@@ -2,8 +2,8 @@
 :root {
   --clr-primary: #2196f3;
   --clr-secondary: #1787e0;
+  --clr-grey: #ececec;
   --section-padding: 6.25rem 0;
-  --section-bg: #ececec;
   --transition-duration: 0.3s;
 }
 /* End Variables */
@@ -83,6 +83,10 @@ section:not(.hero) {
 .gap-40 {
   gap: 2.5rem;
 }
+
+.bg-grey {
+  background-color: var(--clr-grey);
+}
 /* End Utility Classes */
 
 /* Start Components */
@@ -142,6 +146,7 @@ section:not(.hero) {
 header {
   background-color: #fff;
   box-shadow: 0 0 10px #ddd;
+  position: relative; /* for the shadow to appear */
 }
 
 header .container {
@@ -306,19 +311,6 @@ header .container {
 /* End Header */
 
 /* Start Hero */
-.hero {
-  position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-color: var(--section-bg);
-}
-
 .hero .container {
   min-height: calc(100vh - 95.38px); /* header height */
   display: flex;
@@ -507,10 +499,6 @@ header .container {
 /* End Articles */
 
 /* Start Gallery */
-.gallery {
-  background-color: var(--section-bg);
-}
-
 .gallery .box {
   background-color: #fff;
   padding: 1em;
@@ -680,10 +668,6 @@ header .container {
 /* End Features */
 
 /* Start Testimonials */
-.testimonials {
-  background-color: var(--section-bg);
-}
-
 .testimonial-card {
   line-height: 1.15; /* normalize */
   padding: 1.25em;
@@ -697,11 +681,13 @@ header .container {
 
 .testimonial-card__avatar {
   width: 100px;
+  height: 100px;
+  background-color: var(--clr-grey); /* fallback color */
   border-radius: 50%;
-  border: 10px solid var(--section-bg);
+  padding: 10px; /* extends bg-clr instead of a standalone border */
   position: absolute;
   top: -50px; /* half of its height */
-  right: -10px; /* border-width */
+  right: -10px; /* padding value */
 }
 
 .testimonial-card__title {
