@@ -800,6 +800,88 @@ header .container {
 }
 /* End Team */
 
+/* Start Services */
+.service-box {
+  line-height: 1.15;
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),
+    0px 2px 4px 0px rgb(0 0 0 / 12%);
+  counter-increment: service-counter;
+  transition: transform var(--transition-duration);
+  position: relative;
+}
+
+.service-box:hover {
+  transform: translateY(-10px);
+}
+
+.service-box::before {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background-color: var(--clr-primary);
+  position: absolute;
+  top: -3px;
+  transform: scaleX(0);
+  transition: transform var(--transition-duration);
+}
+
+.service-box:hover::before {
+  transform: scaleX(1);
+}
+
+.service-box__title {
+  background-color: #fff;
+  padding: 1.875em 0 2.5em;
+  text-align: center;
+}
+
+.service-box__title i {
+  color: #d5d5d5;
+}
+
+.service-box__title h3 {
+  color: var(--clr-primary);
+  font-size: 1.5625rem;
+  margin-top: 0.75em;
+}
+
+.service-box__details {
+  padding: 1em;
+  text-align: right;
+  color: var(--clr-primary);
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-box__details::before {
+  content: '0' counter(service-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white;
+  background-color: var(--clr-primary);
+  font-size: 1.875rem;
+  font-weight: bold;
+  height: 100%;
+  width: 95px; /* desired width + padding because of "border-box" */
+  padding-right: 15px;
+  display: grid;
+  place-items: center;
+}
+
+.service-box__details::after {
+  content: '';
+  height: calc(100% + 1px); /* to solve a rendering issue, compensated with overflow hidden on the parent */
+  width: 50px;
+  background-color: #d5d5d5;
+  position: absolute;
+  left: 80px; /* ::before (width - padding) */
+  top: 0;
+  transform: skewX(-30deg);
+}
+/* End Services */
+
 /* Start Animation */
 @keyframes float {
   0%,
