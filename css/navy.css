@@ -44,6 +44,10 @@ img {
   object-fit: cover;
 }
 
+section:not(.hero) {
+  padding: var(--section-padding);
+}
+
 .container {
   padding: 0 1rem;
 }
@@ -55,6 +59,31 @@ img {
   }
 }
 /* End Global Rules */
+
+/* Start Utility Classes */
+.grid-fluid-250 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.grid-fluid-300 {
+  display: grid;
+  /* the min() is to prevent overflow on small mobile screens like 320px wide */
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
+
+.gap-20 {
+  gap: 1.25rem;
+}
+
+.gap-30 {
+  gap: 1.875rem;
+}
+
+.gap-40 {
+  gap: 2.5rem;
+}
+/* End Utility Classes */
 
 /* Start Components */
 .section-title {
@@ -420,16 +449,6 @@ header .container {
 /* End Waves */
 
 /* Start Articles */
-.articles {
-  padding: var(--section-padding);
-}
-
-.articles .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2.5rem;
-}
-
 .articles .card {
   box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
   border-radius: 6px;
@@ -489,15 +508,7 @@ header .container {
 
 /* Start Gallery */
 .gallery {
-  padding: var(--section-padding);
   background-color: var(--section-bg);
-}
-
-.gallery .container {
-  display: grid;
-  /* the min() is to prevent overflow on small mobile screens like 320px wide */
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 2.5rem;
 }
 
 .gallery .box {
@@ -540,16 +551,6 @@ header .container {
 /* End Gallery */
 
 /* Start Features */
-.features {
-  padding: var(--section-padding);
-}
-
-.features .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 2.5rem;
-}
-
 .features .box {
   border: 1px solid #ccc;
 }
@@ -681,13 +682,6 @@ header .container {
 /* Start Testimonials */
 .testimonials {
   background-color: var(--section-bg);
-  padding: var(--section-padding);
-}
-
-.testimonials .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 2.5rem;
 }
 
 .testimonial-card {
