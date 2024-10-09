@@ -872,7 +872,9 @@ header .container {
 
 .service-box__details::after {
   content: '';
-  height: calc(100% + 1px); /* to solve a rendering issue, compensated with overflow hidden on the parent */
+  height: calc(
+    100% + 1px
+  ); /* to solve a rendering issue, compensated with overflow hidden on the parent */
   width: 50px;
   background-color: #d5d5d5;
   position: absolute;
@@ -881,6 +883,57 @@ header .container {
   transform: skewX(-30deg);
 }
 /* End Services */
+
+/* Start Skills */
+.our-skills .skills__img {
+  display: none;
+}
+
+.our-skills .skills__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.skills__content .skill__header {
+  line-height: 1.15;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills__content .skill__header span {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--clr-primary);
+  padding: 0.25em 0.45em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.skills__content .skill__progress-bar {
+  background-color: #eee;
+}
+
+.skills__content .skill__progress-bar .progress-bar__fill {
+  height: 30px;
+  background-color: var(--clr-primary);
+}
+
+@media (min-width: 992px) {
+  .our-skills .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .our-skills .skills__img {
+    display: block;
+  }
+
+  .our-skills .skills__content {
+    flex: 1;
+  }
+}
+/* End Skills */
 
 /* Start Animation */
 @keyframes float {
