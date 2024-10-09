@@ -126,11 +126,11 @@ section:not(.hero) {
 }
 
 .section-title::before {
-  left: -30px;
+  left: -22px;
 }
 
 .section-title::after {
-  right: -30px;
+  right: -22px;
 }
 
 .section-title:hover::before {
@@ -139,6 +139,16 @@ section:not(.hero) {
 
 .section-title:hover::after {
   animation: move-left 0.5s linear forwards;
+}
+
+@media (min-width: 768px) {
+  .section-title::before {
+    left: -30px;
+  }
+
+  .section-title::after {
+    right: -30px;
+  }
 }
 /* End Components */
 
