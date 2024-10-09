@@ -935,6 +935,87 @@ header .container {
 }
 /* End Skills */
 
+/* Start Work-Steps */
+.work-steps .container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+}
+
+.work-steps__img {
+  align-self: center; /* to prevent the image from stretching */
+}
+
+.work-steps__content {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.work-steps__content .step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  padding: 1.875em;
+  background-color: #f6f5f5;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.work-steps__content .step::before {
+  content: '';
+  height: 0;
+  width: 0;
+  background-color: #ededed;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: height var(--transition-duration),
+    width var(--transition-duration);
+}
+
+.work-steps__content .step:hover::before {
+  height: 100%;
+  width: 100%;
+}
+
+.work-steps__content .step__img {
+  width: 4em;
+  align-self: center;
+}
+
+.work-steps__content .step__title {
+  font-size: 1.375rem;
+  margin-bottom: 0.5em;
+}
+
+.work-steps__content .step__description {
+  color: #777;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .work-steps__content .step {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .work-steps .container {
+    flex-direction: row;
+    gap: 6.25rem;
+  }
+}
+/* End Work-Steps */
+
 /* Start Animation */
 @keyframes float {
   0%,
