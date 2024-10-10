@@ -1026,6 +1026,147 @@ header .container {
 }
 /* End Work-Steps */
 
+/* Start Events */
+.event-announcement {
+  text-align: center;
+  margin-bottom: 4.375em;
+}
+
+.event-announcement__img {
+  display: none;
+}
+
+.event-announcement__details .details__countdown {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-bottom: 2.5em;
+}
+
+.details__countdown .countdown__col {
+  line-height: 1.15;
+  display: grid;
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  width: 75px;
+}
+
+.countdown__col .col__value {
+  font-weight: bold;
+  font-size: 2.1875rem;
+  padding: 0.5em;
+  color: var(--clr-primary);
+}
+
+.countdown__col .col__unit {
+  font-size: 0.8125rem;
+  padding: 0.6em 0.8em;
+  border-top: 1px solid #d4d4d4;
+}
+
+.details__countdown .countdown__col,
+.countdown__col .col__unit {
+  transition: border-color var(--transition-duration);
+}
+
+.details__countdown .countdown__col:hover,
+.countdown__col:hover .col__unit {
+  border-color: var(--clr-primary);
+}
+
+.details__text {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.details__text h3 {
+  font-size: 1.875rem;
+  line-height: 1.15;
+  margin-bottom: 0.5em;
+}
+
+.details__text p {
+  color: #777;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.event-subscription {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.25em;
+  background-color: #f6f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.event-subscription input[type='email'],
+.event-subscription input[type='submit'] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 1.25em;
+  line-height: 1.15;
+  border: 0;
+}
+
+.event-subscription input[type='email'] {
+  caret-color: var(--clr-primary);
+  outline: none;
+}
+
+.event-subscription input[type='email']::placeholder {
+  transition: opacity var(--transition-duration);
+}
+
+.event-subscription input[type='email']:focus::placeholder {
+  opacity: 0;
+}
+
+.event-subscription input[type='submit'] {
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--clr-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.event-subscription input[type='submit']:hover {
+  background-color: var(--clr-secondary);
+}
+
+@media (min-width: 992px) {
+  .event-announcement {
+    display: flex;
+    align-items: center;
+  }
+
+  .event-announcement__img {
+    display: block;
+    max-width: 500px;
+  }
+
+  .event-announcement__details {
+    flex: 1;
+  }
+
+  .event-subscription,
+  .event-subscription > * {
+    border-radius: 60px;
+  }
+
+  .event-subscription {
+    flex-direction: row;
+    padding: 1.875em;
+  }
+
+  .event-subscription input[type='email'] {
+    flex: 1;
+  }
+}
+/* End Events */
+
 /* Start Animation */
 @keyframes float {
   0%,
