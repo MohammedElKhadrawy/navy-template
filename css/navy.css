@@ -1049,12 +1049,12 @@ header .container {
   background-color: #fff;
   border: 1px solid #d4d4d4;
   border-radius: 5px;
-  width: 75px;
+  width: 70px;
 }
 
 .countdown__col .col__value {
   font-weight: bold;
-  font-size: 2.1875rem;
+  font-size: 1.75rem;
   padding: 0.5em;
   color: var(--clr-primary);
 }
@@ -1134,6 +1134,18 @@ header .container {
 
 .event-subscription input[type='submit']:hover {
   background-color: var(--clr-secondary);
+}
+
+/* decreased original values to fix overflow on the smallest screen */
+/* this media query is to compensate on bigger screens */
+@media (min-width: 768px) {
+  .details__countdown .countdown__col {
+    width: 75px;
+  }
+
+  .countdown__col .col__value {
+    font-size: 2.1875rem;
+  }
 }
 
 @media (min-width: 992px) {
