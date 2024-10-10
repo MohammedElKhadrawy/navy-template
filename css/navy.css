@@ -1040,7 +1040,6 @@ header .container {
   width: min(330px, 100%); /* to prevent overflow on the smallest screen */
   margin: 0 auto 2.5em;
   display: flex;
-  justify-content: center;
   gap: 0.625rem;
 }
 
