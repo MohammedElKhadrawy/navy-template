@@ -1037,31 +1037,32 @@ header .container {
 }
 
 .event-announcement__details .details__countdown {
+  width: min(330px, 100%); /* to prevent overflow on the smallest screen */
+  margin: 0 auto 2.5em;
   display: flex;
   justify-content: center;
   gap: 0.625rem;
-  margin-bottom: 2.5em;
 }
 
 .details__countdown .countdown__col {
+  flex: 1;
   line-height: 1.15;
-  display: grid;
   background-color: #fff;
   border: 1px solid #d4d4d4;
   border-radius: 5px;
-  width: 70px;
+  display: grid; /* to make the 2 spans stack on top of each other in one column */
 }
 
 .countdown__col .col__value {
   font-weight: bold;
-  font-size: 1.75rem;
-  padding: 0.5em;
+  font-size: 2.1875rem;
+  padding: 0.5em 0; /* no padding-x as it breaks width uniformity for each col */
   color: var(--clr-primary);
 }
 
 .countdown__col .col__unit {
   font-size: 0.8125rem;
-  padding: 0.6em 0.8em;
+  padding: 0.6em 0; /* no padding-x as it breaks width uniformity for each col */
   border-top: 1px solid #d4d4d4;
 }
 
@@ -1134,18 +1135,6 @@ header .container {
 
 .event-subscription input[type='submit']:hover {
   background-color: var(--clr-secondary);
-}
-
-/* decreased original values to fix overflow on the smallest screen */
-/* this media query is to compensate on bigger screens */
-@media (min-width: 768px) {
-  .details__countdown .countdown__col {
-    width: 75px;
-  }
-
-  .countdown__col .col__value {
-    font-size: 2.1875rem;
-  }
 }
 
 @media (min-width: 992px) {
