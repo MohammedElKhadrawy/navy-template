@@ -1174,77 +1174,67 @@ header .container {
   line-height: 1.15;
   box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),
     0px 2px 4px 0px rgb(0 0 0 / 12%);
+  padding: 2.5em 0;
   position: relative;
+  z-index: 1;
 }
 
-.pricing__plan.most-popular .label {
+.pricing__plan::before,
+.pricing__plan::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  background-color: #f6f6f6;
+  z-index: -1;
+  transition: width var(--transition-duration);
+}
+
+.pricing__plan::before {
+  height: 43.75%;
+  top: 0;
+  left: 0;
+}
+
+.pricing__plan::after {
+  height: 56.25%;
+  bottom: 0;
+  right: 0;
+}
+
+.pricing__plan:hover::before,
+.pricing__plan:hover::after {
+  width: 100%;
+}
+
+.pricing__plan.most-popular .ribbon {
   position: absolute;
   writing-mode: vertical-rl;
-  padding-inline: 1em .25em; /* NEAT! this adapts to writing mode */
+  padding-inline: 1em 0.25em; /* NEAT! this adapts to writing mode */
   font-size: 1.125rem;
   font-weight: bold;
   color: white;
   background-color: var(--clr-primary);
   width: 40px;
   line-height: 40px;
+  top: 0;
   right: 20px;
   z-index: 2;
 }
 
-.pricing__plan.most-popular .label::before,
-.pricing__plan.most-popular .label::after {
+.pricing__plan.most-popular .ribbon::before,
+.pricing__plan.most-popular .ribbon::after {
   content: '';
   position: absolute;
   bottom: -40px;
   border-top: 40px solid var(--clr-primary);
 }
 
-.pricing__plan.most-popular .label::before {
+.pricing__plan.most-popular .ribbon::before {
   border-left: 40px solid transparent;
 }
 
-.pricing__plan.most-popular .label::after {
+.pricing__plan.most-popular .ribbon::after {
   border-right: 40px solid transparent;
-}
-
-.overlay {
-  position: relative;
-  z-index: 1;
-}
-
-.overlay-top {
-  padding-top: 2.5em;
-  padding-bottom: 1.25em;
-}
-
-.overlay-bottom {
-  padding-bottom: 2.5em;
-}
-
-.overlay-top::before,
-.overlay-bottom::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 0;
-  height: 100%;
-  background-color: #f6f6f6;
-  transition: width var(--transition-duration);
-}
-
-.overlay-top::before {
-  top: 0;
-  left: 0;
-}
-
-.overlay-bottom::after {
-  bottom: 0;
-  right: 0;
-}
-
-.pricing__plan:hover .overlay-top::before,
-.pricing__plan:hover .overlay-bottom::after {
-  width: 100%;
 }
 
 .pricing__plan .plan__title {
@@ -1260,6 +1250,7 @@ header .container {
 .pricing__plan .plan__price {
   display: grid;
   gap: 0.5rem;
+  margin-bottom: 1.25em;
 }
 
 .plan__price .price__fee {
