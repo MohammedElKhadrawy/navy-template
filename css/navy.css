@@ -1167,6 +1167,151 @@ header .container {
 }
 /* End Events */
 
+/* Start Pricing */
+.pricing__plan {
+  background-color: #fff;
+  text-align: center;
+  line-height: 1.15;
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),
+    0px 2px 4px 0px rgb(0 0 0 / 12%);
+  position: relative;
+}
+
+.pricing__plan.most-popular .label {
+  position: absolute;
+  writing-mode: vertical-rl;
+  padding-inline: 1em .25em; /* NEAT! this adapts to writing mode */
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--clr-primary);
+  width: 40px;
+  line-height: 40px;
+  right: 20px;
+  z-index: 2;
+}
+
+.pricing__plan.most-popular .label::before,
+.pricing__plan.most-popular .label::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  border-top: 40px solid var(--clr-primary);
+}
+
+.pricing__plan.most-popular .label::before {
+  border-left: 40px solid transparent;
+}
+
+.pricing__plan.most-popular .label::after {
+  border-right: 40px solid transparent;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.overlay-top {
+  padding-top: 2.5em;
+  padding-bottom: 1.25em;
+}
+
+.overlay-bottom {
+  padding-bottom: 2.5em;
+}
+
+.overlay-top::before,
+.overlay-bottom::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  background-color: #f6f6f6;
+  transition: width var(--transition-duration);
+}
+
+.overlay-top::before {
+  top: 0;
+  left: 0;
+}
+
+.overlay-bottom::after {
+  bottom: 0;
+  right: 0;
+}
+
+.pricing__plan:hover .overlay-top::before,
+.pricing__plan:hover .overlay-bottom::after {
+  width: 100%;
+}
+
+.pricing__plan .plan__title {
+  font-size: 1.5625rem;
+  margin-bottom: 1.2em;
+}
+
+.pricing__plan .plan__img {
+  max-width: 80px;
+  margin-bottom: 1.875rem;
+}
+
+.pricing__plan .plan__price {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.plan__price .price__fee {
+  font-size: 3.75rem;
+  font-weight: bold;
+  color: var(--clr-primary);
+}
+
+.plan__price .price__period {
+  color: #777;
+}
+
+.plan__benefits li {
+  text-align: left;
+  padding: 1.25em 1.5em;
+  border-top: 1px solid #eee;
+}
+
+.plan__benefits li::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 15px;
+  border-right: 3px solid var(--clr-primary);
+  border-bottom: 3px solid var(--clr-primary);
+  transform: rotate(45deg);
+  margin-right: 15px;
+}
+
+.pricing__plan .plan__subscription {
+  margin-top: 1.875em;
+  padding: 1em 1.25em;
+  font-weight: bold;
+  color: var(--clr-primary);
+  border: 2px solid var(--clr-primary);
+  border-radius: 6px;
+  transition: color var(--transition-duration),
+    background-color var(--transition-duration);
+}
+
+.pricing__plan .plan__subscription:hover {
+  color: #fff;
+  background-color: var(--clr-primary);
+}
+
+@media (min-width: 1200px) {
+  .pricing__plan.most-popular {
+    transform: translateY(-20px);
+  }
+}
+/* End Pricing */
+
 /* Start Animation */
 @keyframes float {
   0%,
