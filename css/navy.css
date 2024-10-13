@@ -1387,6 +1387,84 @@ header .container {
 }
 /* End Videos */
 
+/* Start Stats */
+.stats {
+  text-align: center;
+  line-height: 1.15;
+  background-image: url('../assets/stats.jpg');
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.95;
+}
+
+.stats h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.25em;
+}
+
+.stats .stat-box {
+  background-color: white;
+  padding: 1.875em;
+  display: grid;
+  gap: 0.625rem;
+  position: relative;
+  opacity: 0.8;
+  transition: opacity var(--transition-duration);
+}
+
+.stats .stat-box:hover {
+  opacity: 1;
+}
+
+.stats .stat-box::before,
+.stats .stat-box::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: var(--clr-primary);
+  transition: height 1s;
+}
+
+.stats .stat-box::before {
+  bottom: 0;
+  left: 0;
+}
+
+.stats .stat-box::after {
+  top: 0;
+  right: 0;
+}
+
+.stats .stat-box:hover::before,
+.stats .stat-box:hover::after {
+  height: 100%;
+}
+
+.stat-box span {
+  font-size: 3.125rem;
+  font-weight: bold;
+}
+
+.stat-box h3 {
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--clr-primary);
+}
+/* End Stats */
+
 /* Start Animation */
 @keyframes float {
   0%,
