@@ -44,7 +44,7 @@ img {
   object-fit: cover;
 }
 
-section:not(.hero) {
+section:not(.hero, .discount) {
   padding: var(--section-padding);
 }
 
@@ -1465,6 +1465,51 @@ header .container {
 }
 /* End Stats */
 
+/* Start Discount */
+.discount {
+  text-align: center;
+  line-height: 1.15;
+}
+
+.discount-announcement {
+  padding: 2.5em 1em 0;
+  color: #fff;
+  background-color: black;
+  animation: change-background 10s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.discount-announcement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-primary);
+  z-index: -1;
+  opacity: 0.97;
+}
+
+.discount-announcement__title {
+  font-size: 2.5rem;
+  margin-bottom: 0.75em;
+  letter-spacing: -2px;
+}
+
+.discount-announcement__text {
+  font-size: 1.125rem;
+  margin-bottom: 1em;
+}
+
+.discount-announcement__img {
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
+}
+/* End Discount */
+
 /* Start Animation */
 @keyframes float {
   0%,
@@ -1532,6 +1577,16 @@ header .container {
     opacity: 0;
     width: 200%;
     height: 200%;
+  }
+}
+
+@keyframes change-background {
+  0%,
+  100% {
+    background-image: url('../assets/discount-background1.jpg');
+  }
+  50% {
+    background-image: url('../assets/discount-background2.jpg');
   }
 }
 /* End Animation */
