@@ -1306,8 +1306,11 @@ header .container {
 /* End Pricing */
 
 /* Start Videos */
-.videos-collection {
+.videos .wrapper {
   border: 1px solid #ddd;
+}
+
+.videos-collection {
   line-height: 1.15;
 }
 
@@ -1368,7 +1371,7 @@ header .container {
 }
 
 @media (min-width: 992px) {
-  .videos .container {
+  .videos .wrapper {
     display: flex;
   }
 
