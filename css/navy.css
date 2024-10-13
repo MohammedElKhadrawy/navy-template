@@ -1471,10 +1471,19 @@ header .container {
   line-height: 1.15;
 }
 
+.discount-announcement,
+.discount-request {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  padding: 2.5em 1em;
+}
+
 .discount-announcement {
-  padding: 2.5em 1em 0;
   color: #fff;
-  background-color: black;
+  background-size: cover;
   animation: change-background 10s linear infinite;
   position: relative;
   z-index: 1;
@@ -1487,12 +1496,13 @@ header .container {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary);
   z-index: -1;
   opacity: 0.97;
 }
 
-.discount-announcement__title {
+.discount-announcement__title,
+.discount-request__title {
   font-size: 2.5rem;
   margin-bottom: 0.75em;
   letter-spacing: -2px;
@@ -1500,13 +1510,66 @@ header .container {
 
 .discount-announcement__text {
   font-size: 1.125rem;
+  max-width: 500px;
   margin-bottom: 1em;
 }
 
 .discount-announcement__img {
   display: block;
-  max-width: 300px;
+  width: 300px; /* already set max-width to 100% */
   margin: 0 auto;
+}
+
+.discount-request form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.discount-request__input {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.15;
+  caret-color: var(--clr-primary);
+  background-color: #f9f9f9;
+  padding: 1em;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.discount-request textarea {
+  resize: none;
+  height: 200px;
+}
+
+.discount-request input[type='submit'] {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.15;
+  color: #fff;
+  background-color: var(--clr-primary);
+  border: none;
+  padding: 0.75em 0;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.discount-request input[type='submit']:hover {
+  background-color: var(--clr-secondary);
+}
+
+@media (min-width: 992px) {
+  .discount {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .discount-announcement,
+  .discount-request {
+    flex: 1;
+    align-items: center; /* to center at the new min-height */
+  }
 }
 /* End Discount */
 
