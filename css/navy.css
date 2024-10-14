@@ -1416,7 +1416,7 @@ header .container {
 
 .stats .stat-box {
   background-color: white;
-  padding: 1.875em;
+  padding: 1.875em 0;
   display: grid;
   gap: 0.625rem;
   position: relative;
@@ -1572,6 +1572,136 @@ header .container {
   }
 }
 /* End Discount */
+
+/* Start Footer */
+footer {
+  padding-top: 4.375em;
+  color: #fff;
+  background-color: #191919;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.box__footer-title {
+  font-size: 3.125rem;
+  margin-bottom: 0.4em;
+}
+
+.box__socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+.box__socials a {
+  width: 50px;
+  height: 50px;
+  color: #b9b9b9;
+  background-color: #313131;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color var(--transition-duration);
+}
+
+.box__socials a.facebook:hover {
+  background-color: #1877f2;
+}
+
+.box__socials a.twitter:hover {
+  background-color: #000000;
+}
+
+.box__socials a.youtube:hover {
+  background-color: #ff0000;
+}
+
+.box__text {
+  color: #b9b9b9;
+  margin-top: 1em;
+  line-height: 2;
+}
+
+.box__links li:not(:last-child) {
+  border-bottom: 1px solid #444;
+}
+
+.box__links li a {
+  padding: 1em 0;
+  color: #b9b9b9;
+  transition: color var(--transition-duration),
+    padding-left var(--transition-duration);
+}
+
+.box__links li a:hover {
+  color: #fff;
+  padding-left: 0.625em;
+}
+
+.box__links li a::before {
+  content: '\f101';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--clr-primary);
+  margin-right: 0.625em;
+}
+
+.box.footer__info {
+  color: #b9b9b9;
+  display: grid;
+  align-content: start;
+  gap: 1.875rem;
+}
+
+.box.footer__info .box__entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.box__entry i {
+  color: var(--clr-primary);
+  font-size: 1.5rem;
+}
+
+.box__entry p {
+  line-height: 1.7;
+}
+
+.box__entry .entry__info {
+  display: grid;
+  gap: 0.5em;
+}
+
+.box.footer__gallery img {
+  width: 78px; /* trial and error */
+  border: 3px solid #fff;
+  margin: 2px;
+}
+
+.copyrights {
+  text-align: center;
+  padding: 1.5em 0;
+  border-top: 1px solid #444;
+  margin-top: 3.125em;
+}
+
+@media (min-width: 768px) {
+  footer {
+    text-align: left;
+  }
+
+  .box__socials {
+    justify-content: flex-start;
+  }
+
+  .box.footer__info .box__entry {
+    flex-direction: row;
+  }
+}
+/* End Footer */
 
 /* Start Animation */
 @keyframes float {
