@@ -52,10 +52,32 @@ section:not(.hero, .discount) {
   padding: 0 1rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     width: min(97.5%, 1200px);
     margin: 0 auto;
+  }
+} */
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
   }
 }
 /* End Global Rules */
@@ -1529,7 +1551,7 @@ header .container {
   justify-content: center;
 }
 
-.wrapper {
+.discount .wrapper {
   padding: 2.5em 1em;
 }
 
