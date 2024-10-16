@@ -150,6 +150,48 @@ section:not(.hero, .discount) {
     right: -30px;
   }
 }
+
+.spikes {
+  position: relative;
+}
+
+.spikes::before {
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  background-image: linear-gradient(135deg, #fff 25%, transparent 25%),
+    linear-gradient(-135deg, #fff 25%, transparent 25%);
+  /* height is auto by default, no need to set it explicitly since we've set a height for the element itself */
+  background-size: 30px;
+  /* also background-repeat is set to repeat by default */
+}
+
+.dots {
+  background-image: url('../assets/dots.png');
+  position: absolute;
+  /* we have to set this explicitly for the image to appear */
+  /* values are img's dimensions */
+  height: 186px;
+  width: 204px;
+  display: none;
+}
+
+.dots-up {
+  top: 200px;
+  right: 0;
+}
+
+.dots-down {
+  bottom: 200px;
+  left: 0;
+}
+
+@media (min-width: 1200px) {
+  .dots {
+    display: block;
+  }
+}
 /* End Components */
 
 /* Start Header */
@@ -1029,6 +1071,12 @@ header .container {
 /* End Work-Steps */
 
 /* Start Events */
+.events,
+.events .container {
+  /* for the dots img to be displayed properly */
+  position: relative;
+}
+
 .event-announcement {
   text-align: center;
   margin-bottom: 4.375em;
@@ -1170,6 +1218,10 @@ header .container {
 /* End Events */
 
 /* Start Pricing */
+.pricing {
+  position: relative;
+}
+
 .pricing__plan {
   background-color: #fff;
   text-align: center;
