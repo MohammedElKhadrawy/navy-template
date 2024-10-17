@@ -820,7 +820,6 @@ header .container {
 .team-member__profile-img {
   display: block;
   width: calc(100% - 60px); /* socials width */
-  border-radius: 10px;
   transition: filter var(--transition-duration);
 }
 
