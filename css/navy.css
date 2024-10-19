@@ -827,6 +827,8 @@ header .container {
   display: block;
   width: calc(100% - 60px); /* socials width */
   margin-left: 30px; /* half-way */
+  position: relative;
+  z-index: 1;
   transition: filter var(--transition-duration),
     margin-left var(--transition-duration);
 }
