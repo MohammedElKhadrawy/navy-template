@@ -799,14 +799,13 @@ header .container {
 .team-member::before {
   width: calc(100% - 60px);
   background-color: #f3f3f3;
-  transition: transform var(--transition-duration);
+  transition: right var(--transition-duration);
 }
 
 .team-member:after {
   width: 0%;
   background-color: #e4e4e4;
-  transition: width var(--transition-duration),
-    transform var(--transition-duration);
+  transition: width var(--transition-duration), right var(--transition-duration);
 }
 
 .team-member:hover::after {
@@ -815,7 +814,7 @@ header .container {
 
 .team-member:hover::before,
 .team-member:hover::after {
-  transform: translateX(30px);
+  right: 0; /* all the way to the right */
 }
 
 .team-member__profile {
@@ -827,14 +826,14 @@ header .container {
 .team-member__profile-img {
   display: block;
   width: calc(100% - 60px); /* socials width */
-  transform: translateX(30px);
+  margin-left: 30px; /* half-way */
   transition: filter var(--transition-duration),
-    transform var(--transition-duration);
+    margin-left var(--transition-duration);
 }
 
 .team-member:hover .team-member__profile-img {
   filter: grayscale(1);
-  transform: translateX(0);
+  margin-left: 0;
 }
 
 .team-member__profile-socials {
