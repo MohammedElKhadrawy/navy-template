@@ -190,7 +190,7 @@ section:not(.hero, .discount) {
 }
 
 .dots {
-  background-image: url('../assets/dots.png');
+  background-image: url('../assets/dots.webp');
   position: absolute;
   /* we have to set this explicitly for the image to appear */
   /* values are img's dimensions */
@@ -221,6 +221,7 @@ header {
   background-color: #fff;
   box-shadow: 0 0 10px #ddd;
   position: relative; /* for the shadow to appear */
+  z-index: 1;
 }
 
 header .container {
@@ -387,6 +388,10 @@ header .container {
 /* End Header */
 
 /* Start Hero */
+.hero {
+  position: relative;
+}
+
 .hero .container {
   min-height: calc(100vh - 95.38px); /* header height */
   display: flex;
@@ -1496,7 +1501,7 @@ header .container {
 .stats {
   text-align: center;
   line-height: 1.15;
-  background-image: url('../assets/stats.jpg');
+  background-image: url('../assets/stats.webp');
   background-size: cover;
   position: relative;
   z-index: 1;
@@ -1881,10 +1886,10 @@ footer {
 @keyframes change-background {
   0%,
   100% {
-    background-image: url('../assets/discount-background1.jpg');
+    background-image: url('../assets/discount-background1.webp');
   }
   50% {
-    background-image: url('../assets/discount-background2.jpg');
+    background-image: url('../assets/discount-background2.webp');
   }
 }
 /* End Animation */
