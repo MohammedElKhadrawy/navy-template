@@ -2,4 +2,4 @@
 
 Demo
 
-https://mohammedelkhadrawy.github.io/Navy_Template/
+https://mohammedelkhadrawy.github.io/navy-template/
